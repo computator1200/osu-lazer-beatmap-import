@@ -1,0 +1,20 @@
+# Build artifacts
+build/
+lazer-beatmap-import
+*.o
+*.a
+
+# Output directory
+beatmap_output/
+
+# macOS
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
