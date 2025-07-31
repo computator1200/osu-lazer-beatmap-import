@@ -8,6 +8,7 @@ Osu! Lazer allows you to import beatmaps from a previous installation of osu! ho
 - **Pause/Resume functionality** for handling large collections
 - **Graceful stopping** to avoid data corruption
 - **Progress tracking** with real-time status updates
+- **Error logging** with detailed failure reports and timestamps
 - **Modular codebase** with proper project structure
 - **Signal handling** for remote control
 
@@ -83,6 +84,20 @@ kill -TERM $PID
 ## Output
 
 The tool creates a `beatmap_output` directory in the current working directory containing `.osz` files for each beatmap. Each beatmap is automatically opened after creation to trigger the import process in osu! Lazer.
+
+### Error Logging
+
+If any beatmaps fail during processing, detailed error information is automatically logged to a timestamped file (e.g., `beatmap_errors_20250731_223045.log`) in the current directory. The log includes:
+
+- Timestamp of each failure
+- Beatmap name that failed
+- Specific error message
+- Processing summary with success/failure statistics
+
+Failed beatmaps can include:
+- Inaccessible directories (permission issues)
+- Zip creation failures (corrupted files, disk space)
+- System open command failures
 
 ## Performance
 

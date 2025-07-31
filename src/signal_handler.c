@@ -43,10 +43,15 @@ void print_status(beatmap_processor_t *processor) {
         return;
     }
     
-    printf("Status: %s | Processed: %d/%d beatmaps\n", 
+    printf("Status: %s | Processed: %d/%d beatmaps", 
            processor->is_paused ? "PAUSED" : (processor->should_stop ? "STOPPING" : "RUNNING"),
            processor->processed_count, 
            processor->total_count);
+    
+    if (processor->failed_count > 0) {
+        printf(" (%d failed)", processor->failed_count);
+    }
+    printf("\n");
     
     if (processor->is_paused) {
         printf("Send SIGUSR2 to resume or SIGINT/SIGTERM to stop\n");

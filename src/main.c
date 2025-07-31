@@ -25,6 +25,12 @@ int main(int argc, char **argv) {
         return 1;
     }
     
+    // Initialize error log
+    if (init_error_log(&processor) != 0) {
+        cleanup_processor(&processor);
+        return 1;
+    }
+    
     // Setup signal handlers for pause/stop functionality
     setup_signal_handlers(&processor);
     

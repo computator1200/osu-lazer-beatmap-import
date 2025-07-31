@@ -7,6 +7,9 @@ lazer-beatmap-import
 # Output directory
 beatmap_output/
 
+# Error logs
+beatmap_errors_*.log
+
 # macOS
 .DS_Store
 
@@ -18,3 +21,6 @@ beatmap_output/
 # Temporary files
 *.tmp
 *.temp
+
+# Test files
+test_beatmaps/
